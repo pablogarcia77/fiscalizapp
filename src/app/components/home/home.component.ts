@@ -42,9 +42,6 @@ export class HomeComponent implements OnInit {
       };
     });
     const urlWABase = `https://api.whatsapp.com/send?phone=54${this.sendData.contacto}&text=${message}`;
-    console.log(this.contadores);
-    console.log(this.sendData)
-    console.log(nuevosTotales);
     window.open(urlWABase);
   }
 
