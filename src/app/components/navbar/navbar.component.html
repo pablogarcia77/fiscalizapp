@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Fiscalizapp</span>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" [hasBackdrop]="false" (backdropClick)="salute()">
+  <mat-sidenav #sidenav mode="over" class="example-sidenav" [fixedInViewport]="true">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links" routerLinkActive="active">
+        <a class="d-inline-flex" matLine [routerLink]="[link.link]" (click)="sidenav.toggle()">
+          <mat-icon>{{ link.icon }}</mat-icon>
+          <span>{{ link.title }}</span>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,32 @@
+<app-datos
+    (contactData)="recieveData($event)"></app-datos>
+<mat-card *ngFor="let partido of partidos">
+    <mat-card-title>{{ partido.nombre }}</mat-card-title>
+    <mat-card-subtitle>Lista {{ partido.lista }}</mat-card-subtitle>
+    <mat-card-actions class="flex content-between items-center">
+        <button mat-fab color="primary" (click)="restar(partido.key)">
+            <mat-icon>remove</mat-icon>
+        </button>
+        <mat-form-field appearance="outline" class="form-home">
+            <input matInput placeholder="Total" type="number" [(ngModel)]="contadores[partido.key]">
+        </mat-form-field>
+        <button mat-fab color="primary" (click)="sumar(partido.key)">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Totales Generales</mat-card-title>
+    <mat-card-content>
+        <p *ngFor="let partido of partidos">
+            {{ partido.nombre }}: {{ contadores[partido.key] }}
+        </p>
+        <p>Diferencia: {{ contadores['electores'] - sumaTodo() }}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="enviarReporte()">
+            Enviar Reporte
+        </button>
+    </mat-card-actions>
+</mat-card>

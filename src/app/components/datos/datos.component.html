@@ -1,0 +1,19 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle (closed)="closePanel()">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Datos de Mesa y contacto
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="datos">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Número de Mesa</mat-label>
+                <input matInput placeholder="Número de Mesa" formControlName="mesa" (blur)="closePanel()">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Teléfono del contacto</mat-label>
+                <input matInput placeholder="Teléfono del contacto" formControlName="contacto" (blur)="closePanel()">
+            </mat-form-field>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>
